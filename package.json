@@ -1,6 +1,6 @@
 {
   "name": "@nagisa~/node-red-dsmr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A node to give some structure to a stream of DSMR data",
   "node-red": {
     "nodes": {
