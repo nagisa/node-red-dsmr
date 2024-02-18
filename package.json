@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-dsmr",
+  "version": "1.0.0",
+  "description": "Nodes to parse DSMR payloads",
+  "node-red": {
+    "nodes": {
+      "dsmr": "./dist/nodes/dsmr.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc src/nodes/dsmr.ts --outDir dist/nodes -d && ./node_modules/rollup/dist/bin/rollup -c rollup.js --bundleConfigAsCjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://https://github.com/nagisa/node-red-contrib-dsmr"
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "author": "Simonas Kazlauskas <node-red-contrib-dsmr@kazlauskas.me>",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node-red": "^1.3.4",
+    "glob": "^10.3.10",
+    "rollup": "^4.12.0",
+    "tslib": "^2.6.2"
+  },
+  "dependencies": {
+    "crc": "^4.3.2"
+  }
+}
