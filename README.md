@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><code>node-red-contrib-dsmr</code></h1>
+  <h1><code>@nagisa~/node-red-dsmr</code></h1>
 
   <p>
     <strong>A node to give some structure to a stream of DSMR data</strong>

@@ -1,6 +1,6 @@
 {
   "name": "@nagisa~/node-red-dsmr",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A node to give some structure to a stream of DSMR data",
   "node-red": {
     "nodes": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nagisa/node-red-contrib-dsmr.git"
+    "url": "git+https://github.com/nagisa/node-red-dsmr.git"
   },
-  "homepage": "https://github.com/nagisa/node-red-contrib-dsmr",
+  "homepage": "https://github.com/nagisa/node-red-dsmr",
   "keywords": [
     "node-red",
     "dsmr"
   ],
-  "author": "Simonas Kazlauskas <node-red-contrib-dsmr@kazlauskas.me>",
+  "author": "Simonas Kazlauskas <node-red-dsmr@kazlauskas.me>",
   "files": [
     "dist",
     "examples"
