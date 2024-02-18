@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-dsmr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A node to give some structure to a stream of DSMR data",
   "node-red": {
     "nodes": {
