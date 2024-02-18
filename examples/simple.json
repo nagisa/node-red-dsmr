@@ -1,0 +1,84 @@
+[
+    {
+        "id": "561f2aef5d4ce8ee",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8724c98f695c7d24",
+        "type": "tcp in",
+        "z": "561f2aef5d4ce8ee",
+        "name": "P1 Device",
+        "server": "client",
+        "host": "",
+        "port": "23",
+        "datamode": "stream",
+        "datatype": "buffer",
+        "newline": "",
+        "topic": "",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "9f9dbc7d7513d30e"
+            ]
+        ]
+    },
+    {
+        "id": "9f9dbc7d7513d30e",
+        "type": "dsmr",
+        "z": "561f2aef5d4ce8ee",
+        "name": "Demux",
+        "property": "payload",
+        "maximumTelegram": 10240,
+        "x": 270,
+        "y": 40,
+        "wires": [
+            [
+                "656c3859648f2485"
+            ]
+        ]
+    },
+    {
+        "id": "656c3859648f2485",
+        "type": "function",
+        "z": "561f2aef5d4ce8ee",
+        "name": "Extract data",
+        "func": "const payload = msg.payload;\nlet newPayload = [\n];\n\nfunction point(obis, field, valueCvt) {\n    const [value, unit] = payload[obis][0].split('*')\n    let fields = {};\n    fields[field] = valueCvt(value);\n    const tags = {\n        'meter': payload['identification']\n    };\n    if (unit !== undefined) tags['unit'] = unit;\n    newPayload.push([fields, tags]);\n}\n\nfunction integer(v) {\n    const val = ~~v;\n    return val;\n}\n\npoint('1-0:1.8.1', 'import.active.t1', parseFloat);\npoint('1-0:2.8.1', 'export.active.t1', parseFloat);\npoint('1-0:3.8.1', 'import.reactive.t1', parseFloat);\npoint('1-0:4.8.1', 'export.reactive.t1', parseFloat);\npoint('1-0:32.7.0', 'voltage.l1', parseFloat);\npoint('1-0:52.7.0', 'voltage.l2', parseFloat);\npoint('1-0:72.7.0', 'voltage.l3', parseFloat);\npoint('0-0:96.7.21', 'power_losses', integer);\n\nRED.util.setMessageProperty(msg, 'payload', newPayload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "ff7b72cac1e3b781"
+            ]
+        ]
+    },
+    {
+        "id": "ff7b72cac1e3b781",
+        "type": "debug",
+        "z": "561f2aef5d4ce8ee",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 40,
+        "wires": []
+    }
+]

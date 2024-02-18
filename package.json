@@ -21,7 +21,8 @@
   ],
   "author": "Simonas Kazlauskas <node-red-contrib-dsmr@kazlauskas.me>",
   "files": [
-    "dist"
+    "dist",
+    "examples"
   ],
   "license": "ISC",
   "devDependencies": {
