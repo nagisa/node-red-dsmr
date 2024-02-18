@@ -7,7 +7,7 @@
 
 </div>
 
-his package provides a single node for the [node-red](https://nodered.org) project. The node
+This package provides a single node for the [node-red](https://nodered.org) project. The node
 consumes a stream of DSMR data such as what might be obtained from an electricity meter over
 its P1 port over serial or TCP connection, frames it and gives the data a little bit of
 structure.
