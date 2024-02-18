@@ -67,7 +67,7 @@ const init: NodeInitializer = (RED) => {
                 }
 
                 const [identifier, empty, ...cosem_objects] = telegram.split("\r\n");
-                let structured_payload = {
+                let structured_payload: Record<string, string|string[]> = {
                     vendor: identifier.slice(1, 4),
                     identification: identifier.slice(5),
                 };
@@ -91,7 +91,7 @@ const init: NodeInitializer = (RED) => {
                 RED.util.setMessageProperty(msg, props.property, structured_payload)
                 send(msg);
 
-                // Keep parsing telegrams out of the buffer while for as long as doing so makes
+                // Keep parsing telegrams out of the buffer for as long as doing so makes
                 // progress.
             } while (this.buffer.length != previous_length);
             return done();
